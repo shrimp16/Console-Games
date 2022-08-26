@@ -40,7 +40,7 @@
 
     public static string getRandomWord()
     {
-        words = File.ReadAllLines("./words.txt");
+        words = File.ReadAllLines("./words/en.txt");
 
         return words[random.Next(words.Length)];
     }
