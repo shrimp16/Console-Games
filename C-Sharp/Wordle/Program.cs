@@ -3,6 +3,7 @@
 
     public static string answer { get; set; }
     public static int tries { get; set; }
+    public static string[] words;
     public static Random random;
 
     static void Main(string[] args)
@@ -39,7 +40,7 @@
 
     public static string getRandomWord()
     {
-        string[] words = File.ReadAllLines("./words.txt");
+        words = File.ReadAllLines("./words.txt");
 
         return words[random.Next(words.Length)];
     }
@@ -52,7 +53,7 @@
 
         Console.WriteLine("\n================================\n");
 
-        if (userAnswer == null || userAnswer.Length != 5)
+        if (userAnswer == null || userAnswer.Length != 5 || !words.Contains(userAnswer))
         {
             Console.WriteLine("Invalid word!");
             guessWord();
