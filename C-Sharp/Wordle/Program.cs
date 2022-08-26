@@ -3,8 +3,16 @@
 
     public static string answer { get; set; }
     public static int tries { get; set; }
+
+    public static int languageId { get; set; }
     public static string[] words;
     public static Random random;
+
+    public static string[] files = { "en", "es", "fr" };
+
+    public static string[] win = { "The word is {0}, you won!", "La palabra es {0}, ganaste", "Le mot est {0}, tu as gagné!" };
+    public static string[] lost = { "The word is {0}, you lost!", "La palabra es {0}, perdiste", "Le mot est {0}, tu as perdu!" };
+    public static string[] tries_view = { "Tries left: ", "Intentos restantes: ", "Tentatives restantes: " };
 
     static void Main(string[] args)
     {
@@ -12,39 +20,33 @@
         random = new Random();
         answer = getRandomWord();
 
+        Menu menu = new Menu();
+
+        languageId = menu.Start();
+
         Console.Clear();
 
-        /*Console.WriteLine(answer);
-
-        Console.Clear();
-
-        Console.WriteLine("Welcome to Wordle!\n");
-
-        Console.WriteLine("\nHere's how the game works:");
-
-        Console.WriteLine("\nYou will have to write a word with 5 letters to try to guess an hidden word!");
-
-        Console.WriteLine("\nYou will have 6 tries!");
+        Console.WriteLine(Messages.START[languageId]);
 
         Console.ForegroundColor = ConsoleColor.Green;
-        Console.WriteLine("\nGreen - Means the word is in it's correct place!");
+        Console.WriteLine(Messages.GREEN[languageId]);
 
         Console.ForegroundColor = ConsoleColor.Yellow;
-        Console.WriteLine("\nYellow - The word contains that letter atleast once, but it's not in the right place!");
+        Console.WriteLine(Messages.YELLOW[languageId]);
 
         Console.ForegroundColor = ConsoleColor.Red;
-        Console.WriteLine("\nRed - The word does not contain that letter!");
+        Console.WriteLine(Messages.RED[languageId]);
 
-        Console.ForegroundColor = ConsoleColor.White;*/
+        Console.ForegroundColor = ConsoleColor.White;
 
-        Console.WriteLine(Messages.START[0]);
+        Console.WriteLine(answer);
 
         guessWord();
     }
 
     public static string getRandomWord()
     {
-        words = File.ReadAllLines("./words/en.txt");
+        words = File.ReadAllLines($"./words/{files[languageId]}.txt");
 
         return words[random.Next(words.Length)];
     }
@@ -59,6 +61,7 @@
         if (userAnswer == null || userAnswer.Length != 5 || !words.Contains(userAnswer))
         {
             Console.WriteLine("Invalid word!");
+            Console.WriteLine("\n================================\n");
             guessWord();
         }
 
@@ -68,22 +71,28 @@
 
         Console.WriteLine("\n================================");
 
-        if (tries < 0)
-        {
-            Console.WriteLine("The word is {0}, you lost!", answer);
-            return;
-        }
-
         if (userAnswer == answer)
         {
-            Console.WriteLine("The word is {0}, you won!", answer);
+            Console.WriteLine();
+            Console.WriteLine(win[languageId], answer);
+            Console.WriteLine("\n================================\n");
             return;
         }
 
-        else
+        if (tries == 0)
         {
-            guessWord();
+            Console.WriteLine();
+            Console.WriteLine(lost[languageId], answer);
+            Console.WriteLine("\n================================\n");
+            return;
         }
+
+        Console.WriteLine();
+        Console.WriteLine(tries_view[languageId] + tries);
+        Console.WriteLine("\n================================");
+
+        guessWord();
+
 
     }
 
@@ -96,28 +105,23 @@
             switch (checkLetter(userAnswer[i], i))
             {
                 case 0:
-                    correctness[i] = "Wrong";
+                    correctness[i] = Messages.WRONG[languageId];
                     Console.ForegroundColor = ConsoleColor.Red;
                     break;
                 case 1:
-                    correctness[i] = "Correct";
+                    correctness[i] = Messages.CORRECT[languageId];
                     Console.ForegroundColor = ConsoleColor.Green;
                     break;
                 case 2:
-                    correctness[i] = "Wrong Place";
+                    correctness[i] = Messages.CORRECT[languageId];
                     Console.ForegroundColor = ConsoleColor.Yellow;
                     break;
             }
 
-            Console.WriteLine("Letter {0}: {1}", userAnswer[i], correctness[i]);
-
+            Console.WriteLine("{0} : {1}", userAnswer[i], correctness[i]);
 
             Console.ForegroundColor = ConsoleColor.White;
         }
-
-        Console.WriteLine("\n================================\n");
-
-        Console.WriteLine("Tries left: {0}", tries);
     }
 
     public static int checkLetter(char letter, int currentLetter)
