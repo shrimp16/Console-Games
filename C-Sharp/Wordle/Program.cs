@@ -12,7 +12,9 @@
         random = new Random();
         answer = getRandomWord();
 
-        Console.WriteLine(answer);
+        Console.Clear();
+
+        /*Console.WriteLine(answer);
 
         Console.Clear();
 
@@ -33,7 +35,9 @@
         Console.ForegroundColor = ConsoleColor.Red;
         Console.WriteLine("\nRed - The word does not contain that letter!");
 
-        Console.ForegroundColor = ConsoleColor.White;
+        Console.ForegroundColor = ConsoleColor.White;*/
+
+        Console.WriteLine(Messages.START[0]);
 
         guessWord();
     }
