@@ -50,7 +50,6 @@
         Console.Write("\nYour guess: ");
         string? userAnswer = Console.ReadLine();
 
-
         Console.WriteLine("\n================================\n");
 
         if (userAnswer == null || userAnswer.Length != 5 || !words.Contains(userAnswer))
