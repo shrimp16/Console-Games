@@ -2,18 +2,37 @@
 {
 
     public static string answer { get; set; }
-    public static int guesses { get; set; }
+    public static int tries { get; set; }
     public static Random random;
 
     static void Main(string[] args)
     {
-        guesses = 6;
+        tries = 6;
         random = new Random();
         answer = getRandomWord();
 
         Console.WriteLine(answer);
 
-        Console.WriteLine("Welcome to Wordle!\nTry to guess the word!");
+        Console.Clear();
+
+        Console.WriteLine("Welcome to Wordle!\n");
+
+        Console.WriteLine("\nHere's how the game works:");
+
+        Console.WriteLine("\nYou will have to write a word with 5 letters to try to guess an hidden word!");
+
+        Console.WriteLine("\nYou will have 6 tries!");
+
+        Console.ForegroundColor = ConsoleColor.Green;
+        Console.WriteLine("\nGreen - Means the word is in it's correct place!");
+
+        Console.ForegroundColor = ConsoleColor.Yellow;
+        Console.WriteLine("\nYellow - The word contains that letter atleast once, but it's not in the right place!");
+
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.WriteLine("\nRed - The word does not contain that letter!");
+
+        Console.ForegroundColor = ConsoleColor.White;
 
         guessWord();
     }
@@ -27,12 +46,11 @@
 
     public static void guessWord()
     {
-
+        Console.Write("\nYour guess: ");
         string? userAnswer = Console.ReadLine();
 
-        guesses--;
 
-        Console.WriteLine("================================\n");
+        Console.WriteLine("\n================================\n");
 
         if (userAnswer == null || userAnswer.Length != 5)
         {
@@ -40,11 +58,13 @@
             guessWord();
         }
 
+        tries--;
+
         showCorrectness(userAnswer);
 
         Console.WriteLine("\n================================");
 
-        if (guesses == 0)
+        if (tries < 0)
         {
             Console.WriteLine("The word is {0}, you lost!", answer);
             return;
@@ -52,7 +72,7 @@
 
         if (userAnswer == answer)
         {
-            Console.WriteLine("The word is {0}, you won and still had {1} guesses left!", answer, guesses);
+            Console.WriteLine("The word is {0}, you won!", answer);
             return;
         }
 
@@ -73,17 +93,27 @@
             {
                 case 0:
                     correctness[i] = "Wrong";
+                    Console.ForegroundColor = ConsoleColor.Red;
                     break;
                 case 1:
                     correctness[i] = "Correct";
+                    Console.ForegroundColor = ConsoleColor.Green;
                     break;
                 case 2:
                     correctness[i] = "Wrong Place";
+                    Console.ForegroundColor = ConsoleColor.Yellow;
                     break;
             }
 
             Console.WriteLine("Letter {0}: {1}", userAnswer[i], correctness[i]);
+
+
+            Console.ForegroundColor = ConsoleColor.White;
         }
+
+        Console.WriteLine("\n================================\n");
+
+        Console.WriteLine("Tries left: {0}", tries);
     }
 
     public static int checkLetter(char letter, int currentLetter)
@@ -93,7 +123,7 @@
             return 0;
         }
 
-        if (answer.Contains(letter) && letter == answer[currentLetter])
+        if (letter == answer[currentLetter])
         {
             return 1;
         }
