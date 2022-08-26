@@ -3,25 +3,26 @@
 
     public static string answer { get; set; }
     public static int guesses { get; set; }
+    public static Random random;
 
     static void Main(string[] args)
     {
-        answer = getWord();
+        guesses = 6;
+        random = new Random();
+        answer = getRandomWord();
+
+        Console.WriteLine(answer);
 
         Console.WriteLine("Welcome to Wordle!\nTry to guess the word!");
 
         guessWord();
     }
 
-    public static string getWord()
+    public static string getRandomWord()
     {
         string[] words = File.ReadAllLines("./words.txt");
 
-        Random random = new Random();
-
-        string answer = words[random.Next(words.Length)];
-
-        return "lemon";
+        return words[random.Next(words.Length)];
     }
 
     public static void guessWord()
@@ -29,7 +30,7 @@
 
         string? userAnswer = Console.ReadLine();
 
-        guesses++;
+        guesses--;
 
         Console.WriteLine("================================\n");
 
@@ -39,29 +40,11 @@
             guessWord();
         }
 
-        string[] output = new string[5];
-
-        for (int i = 0; i < 5; i++)
-        {
-            switch (checkLetter(userAnswer[i], i))
-            {
-                case 0:
-                    output[i] = "Wrong";
-                    break;
-                case 1:
-                    output[i] = "Wrong Place";
-                    break;
-                case 2:
-                    output[i] = "Correct";
-                    break;
-            }
-
-            Console.WriteLine("Letter {0}: {1}", userAnswer[i], output[i]);
-        }
+        showCorrectness(userAnswer);
 
         Console.WriteLine("\n================================");
 
-        if (guesses == 6)
+        if (guesses == 0)
         {
             Console.WriteLine("The word is {0}, you lost!", answer);
             return;
@@ -69,14 +52,38 @@
 
         if (userAnswer == answer)
         {
-            Console.WriteLine("The word is {0}, you won in {1} guesses!", answer, guesses);
+            Console.WriteLine("The word is {0}, you won and still had {1} guesses left!", answer, guesses);
             return;
         }
+
         else
         {
             guessWord();
         }
 
+    }
+
+    public static void showCorrectness(string userAnswer)
+    {
+        string[] correctness = new string[5];
+
+        for (int i = 0; i < 5; i++)
+        {
+            switch (checkLetter(userAnswer[i], i))
+            {
+                case 0:
+                    correctness[i] = "Wrong";
+                    break;
+                case 1:
+                    correctness[i] = "Correct";
+                    break;
+                case 2:
+                    correctness[i] = "Wrong Place";
+                    break;
+            }
+
+            Console.WriteLine("Letter {0}: {1}", userAnswer[i], correctness[i]);
+        }
     }
 
     public static int checkLetter(char letter, int currentLetter)
@@ -88,9 +95,9 @@
 
         if (answer.Contains(letter) && letter == answer[currentLetter])
         {
-            return 2;
+            return 1;
         }
 
-        return 1;
+        return 2;
     }
 }
