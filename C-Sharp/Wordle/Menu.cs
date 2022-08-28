@@ -1,7 +1,8 @@
 class Menu
 {
 
-    public static string[] languages = { "English", "Español", "Français" };
+    public static string[] languages = { "English", "Português", "Español", "Français"};
+    
 
     public static string languageSelected { get; set; }
 

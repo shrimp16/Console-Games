@@ -8,12 +8,11 @@
     public static string[] words;
     public static Random random;
 
-    public static string[] files = { "en", "es", "fr" };
+    public static string[] files = { "en", "pt", "es", "fr" };
 
-    public static string[] win = { "The word is {0}, you won!", "La palabra es {0}, ganaste", "Le mot est {0}, tu as gagné!" };
-    public static string[] lost = { "The word is {0}, you lost!", "La palabra es {0}, perdiste", "Le mot est {0}, tu as perdu!" };
-    public static string[] tries_view = { "Tries left: ", "Intentos restantes: ", "Tentatives restantes: " };
-
+    public static string[] win = { "The word is {0}, you won!", "A palavra é {0}, tu ganhaste!", "La palabra es {0}, ganaste", "Le mot est {0}, tu as gagné!" };
+    public static string[] lost = { "The word is {0}, you lost!", "A plavavra é {0}, tu perdeste!", "La palabra es {0}, perdiste", "Le mot est {0}, tu as perdu!" };
+    public static string[] tries_view = { "Tries left: ", "Tentativas restantes: ", "Intentos restantes: ", "Tentatives restantes: " };
     static void Main(string[] args)
     {
         tries = 6;
@@ -39,7 +38,7 @@
 
         Console.ForegroundColor = ConsoleColor.White;
 
-        Console.WriteLine(answer);
+        //Console.WriteLine(answer);
 
         guessWord();
     }
