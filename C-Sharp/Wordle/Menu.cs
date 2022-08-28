@@ -1,7 +1,7 @@
 class Menu
 {
 
-    public static string[] languages = { "English", "Spanish", "French" };
+    public static string[] languages = { "English", "Español", "Français" };
 
     public static string languageSelected { get; set; }
 
@@ -24,8 +24,6 @@ class Menu
     public void loadMenu()
     {
         Console.Clear();
-
-        Console.WriteLine("Language:\n");
 
         for (int i = 0; i < languages.Length; i++)
         {

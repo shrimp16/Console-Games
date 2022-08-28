@@ -79,7 +79,7 @@
             return;
         }
 
-        if (tries == 0)
+        if (tries <= 0)
         {
             Console.WriteLine();
             Console.WriteLine(lost[languageId], answer);
@@ -113,7 +113,7 @@
                     Console.ForegroundColor = ConsoleColor.Green;
                     break;
                 case 2:
-                    correctness[i] = Messages.CORRECT[languageId];
+                    correctness[i] = Messages.WRONG_PLACE[languageId];
                     Console.ForegroundColor = ConsoleColor.Yellow;
                     break;
             }
