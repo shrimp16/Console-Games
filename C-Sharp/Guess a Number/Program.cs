@@ -1,6 +1,5 @@
 ﻿class Program
 {
-
     static void Main(string[] args)
     {
         Game game = new Game();
@@ -11,7 +10,6 @@
 
 class Game
 {
-
     public int randomNumber { get; set; }
     public int tries { get; set; }
     public bool win { get; set; }
@@ -19,6 +17,7 @@ class Game
     public void Start()
     {
         randomNumber = GenerateRandomNumber();
+        Console.Clear();
         Play();
     }
 
@@ -28,7 +27,7 @@ class Game
 
         while (!win)
         {
-            Console.WriteLine("Guess a number: ");
+            Console.Write("Guess a number: ");
             Int32.TryParse(Console.ReadLine(), out guess);
             tries++;
             CheckNumber(guess);
@@ -46,17 +45,19 @@ class Game
 
         if (guess == randomNumber)
         {
-            Console.WriteLine($"Congratulations! You won within {tries} tries");
+            Console.WriteLine($"\nCongratulations! You won within {tries} tries");
             win = true;
             return;
         }
         else if (guess < randomNumber)
         {
-            Console.WriteLine("Wrong! Too low!");
+            Console.WriteLine("Wrong! Too low!\n");
+            Console.WriteLine(new string('=', 20));
             return;
         }
 
-        Console.Write("Wrong! Too high!");
+        Console.WriteLine("Wrong! Too high!\n");
+        Console.WriteLine(new string('=', 20));
     }
 
 }
