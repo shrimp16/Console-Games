@@ -15,8 +15,12 @@
     public static string[] tries_view = { "Tries left: ", "Tentativas restantes: ", "Intentos restantes: ", "Tentatives restantes: " };
     static void Main(string[] args)
     {
+        GameStart();
+    }
+
+    public static void GameStart()
+    {
         tries = 6;
-        random = new Random();
         answer = getRandomWord();
 
         Menu menu = new Menu();
@@ -38,8 +42,6 @@
 
         Console.ForegroundColor = ConsoleColor.White;
 
-        //Console.WriteLine(answer);
-
         guessWord();
     }
 
@@ -47,7 +49,7 @@
     {
         words = File.ReadAllLines($"./words/{files[languageId]}.txt");
 
-        return words[random.Next(words.Length)];
+        return words[new Random().Next(words.Length)];
     }
 
     public static void guessWord()
@@ -66,7 +68,7 @@
 
         tries--;
 
-        showCorrectness(userAnswer);
+        showResult(userAnswer);
 
         Console.WriteLine("\n================================");
 
@@ -95,7 +97,7 @@
 
     }
 
-    public static void showCorrectness(string userAnswer)
+    public static void showResult(string userAnswer)
     {
         string[] correctness = new string[5];
 
