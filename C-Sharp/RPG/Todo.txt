@@ -1,0 +1,16 @@
+Needed:
+    => Player
+        => Skills
+        => Atributes
+        => Items
+        => Pets
+    => Enemies
+        => Normal
+        => Boss
+    => NPCs
+        => Shops
+        => Employers
+    => Missions
+        => Hunt
+        => Jobs
+    => Dungeons
