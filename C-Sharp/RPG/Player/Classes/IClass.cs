@@ -1,8 +1,8 @@
 interface IClass
 {
 
-    void BasicSkill();
-    void MediumSkill();
-    void UltimateSkill();
-    
+    void BasicSkill(Player player);
+    void MediumSkill(Player player);
+    void UltimateSkill(Player player);
+
 }
