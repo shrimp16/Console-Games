@@ -1,5 +1,5 @@
 namespace Enemies;
 
 interface IEnemy {
-    void Attack();
+    void TakeDamage(int damage);
 }
