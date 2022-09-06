@@ -12,9 +12,9 @@ class EnemiesFactory
 
         switch (randomNumber)
         {
-            case 1:
+            case 0:
                 return new SavageWolf();
-            case 2:
+            case 1:
                 return new SavageBoar();
             default:
                 return new SavageWolf();

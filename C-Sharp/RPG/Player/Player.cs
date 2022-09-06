@@ -12,8 +12,13 @@ class Player
     public IItems[]? Inventory { get; set; }
     public IPets[]? Pets { get; set; }
 
+    public Player(int health){
+        this.Health = health;
+        AttackDamage = 20;
+    }
+
     public void TakeDamage(int damage){
-        Health -= damage;
+        Health = Health - damage;
     }
 
 }
