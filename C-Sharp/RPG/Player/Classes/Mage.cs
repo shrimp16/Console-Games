@@ -1,18 +1,20 @@
+using Enemies;
+
 namespace Classes;
 
 class Mage
 {
-    public void BasicSkill()
+    public void BasicSkill(Player player, IEnemy enemy)
     {
 
     }
 
-    public void MediumSkill()
+    public void MediumSkill(Player player, IEnemy enemy)
     {
 
     }
 
-    public void UltimateSkill()
+    public void UltimateSkill(Player player, IEnemy enemy)
     {
 
     }

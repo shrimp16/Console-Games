@@ -5,6 +5,7 @@ namespace Factories;
 class EnemiesFactory
 {
 
+    //NEED TO WORK ON THIS PROBABILITIES
     public IEnemy GenerateEnemy()
     {
 
