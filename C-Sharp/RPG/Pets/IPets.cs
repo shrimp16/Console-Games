@@ -1,5 +1,5 @@
 namespace Pets;
 
-interface IPets {
+public interface IPets {
     void Hability();
 }

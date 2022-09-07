@@ -1,6 +1,6 @@
 namespace Enemies;
 
-interface IEnemy
+public interface IEnemy
 {
 
     int Health { get; set; }

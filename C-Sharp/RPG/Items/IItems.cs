@@ -1,5 +1,5 @@
 namespace Items;
 
-interface IItems {
+public interface IItems {
     void Use();
 }

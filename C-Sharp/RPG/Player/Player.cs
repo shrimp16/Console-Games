@@ -1,7 +1,6 @@
 using Items;
 using Pets;
-
-class Player
+public class Player
 {
 
     public IClass PlayerClass { get; set; } = null!;
@@ -14,7 +13,7 @@ class Player
 
     public Player(int health){
         this.Health = health;
-        AttackDamage = 20;
+        AttackDamage = 2345;
     }
 
     public void TakeDamage(int damage){
