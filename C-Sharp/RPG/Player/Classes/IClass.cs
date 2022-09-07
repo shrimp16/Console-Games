@@ -1,6 +1,6 @@
 using Enemies;
 
-interface IClass
+public interface IClass
 {
 
     void BasicSkill(Player player, IEnemy enemy);

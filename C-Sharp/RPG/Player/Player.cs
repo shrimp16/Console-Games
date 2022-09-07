@@ -1,7 +1,6 @@
 using Items;
 using Pets;
-
-class Player
+public class Player
 {
 
     public IClass PlayerClass { get; set; } = null!;
