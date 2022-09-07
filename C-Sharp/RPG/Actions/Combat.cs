@@ -11,17 +11,32 @@ public class Combat
         this.Player = Player;
     }
 
-    public void StartCombat(){
+    public void StartCombat()
+    {
         inCombat = true;
-        while(inCombat){
+        while (inCombat)
+        {
             Enemy.TakeDamage(Player.AttackDamage);
+            if (Enemy.Health <= 0)
+            {
+                Console.WriteLine("The player won!");
+                inCombat = false;
+                ShowHealth();
+                return;
+            }
             Player.TakeDamage(Enemy.Damage);
-            Console.WriteLine("Player HP: {0}", Player.Health);
-            Console.WriteLine("Enemy HP: {0}", Enemy.Health);
-
-            if(Enemy.Health <= 0 || Player.Health <= 0){
+            if (Player.Health <= 0)
+            {
+                Console.WriteLine("The enemy won!");
                 inCombat = false;
             }
+            ShowHealth();
         }
+    }
+
+    public void ShowHealth()
+    {
+        Console.WriteLine("Player HP: {0}", Player.Health);
+        Console.WriteLine("Enemy HP: {0}", Enemy.Health);
     }
 }

@@ -13,7 +13,7 @@ public class Player
 
     public Player(int health){
         this.Health = health;
-        AttackDamage = 20;
+        AttackDamage = 2345;
     }
 
     public void TakeDamage(int damage){
