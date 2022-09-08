@@ -1,6 +1,6 @@
 namespace Controls;
 
-class CombatControls
+public class CombatControls
 {
 
     public int GetPlayerAttack(Player player)
@@ -15,7 +15,7 @@ class CombatControls
 
     }
 
-    public CombatCommands Select()
+    private CombatCommands Select()
     {
         return CombatCommands.BasicAttack;
     }
