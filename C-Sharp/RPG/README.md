@@ -1,1 +1,1 @@
-<h1 align="center">Console-RGB</h1>
+<h1 align="center">Console-RPG</h1>
