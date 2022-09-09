@@ -9,4 +9,6 @@
   
   [Guess a Number](https://github.com/shrimp16/Console-Games/tree/main/C-Sharp/Guess%20a%20Number)
   
+  [RPG](https://github.com/shrimp16/Console-Games/tree/main/C-Sharp/RPG)
+  
 </div>
