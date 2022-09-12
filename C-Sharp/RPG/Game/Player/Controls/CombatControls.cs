@@ -3,6 +3,7 @@ namespace Controls;
 public class CombatControls
 {
 
+    //needs changes like the combat class
     public int GetPlayerAttack(Player player)
     {
         switch (Select())

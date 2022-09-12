@@ -18,6 +18,7 @@ public class Combat
         inCombat = true;
         while (inCombat)
         {
+            // This needs changes, the attack is the one that should do this.
             Enemy.TakeDamage(combatControls.GetPlayerAttack(Player));
             if (Enemy.Health <= 0)
             {
