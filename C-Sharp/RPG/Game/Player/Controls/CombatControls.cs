@@ -16,6 +16,12 @@ public class CombatControls
             case CombatCommands.BasicSkill:
                 player.PlayerClass.BasicSkill(player, enemy);
                 break;
+            case CombatCommands.MediumSkill:
+                player.PlayerClass.MediumSkill(player, enemy);
+                break;
+            case CombatCommands.UltimateSkill:
+                player.PlayerClass.UltimateSkill(player, enemy);
+                break;
         }
 
     }
