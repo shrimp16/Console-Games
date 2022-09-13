@@ -1,5 +1,6 @@
 using Items;
 using Pets;
+using Classes;
 public class Player
 {
 
@@ -14,6 +15,8 @@ public class Player
     public Player(int health){
         this.Health = health;
         AttackDamage = 50;
+        MagicDamage = 100;
+        PlayerClass = new Mage();
     }
 
     public void TakeDamage(int damage){

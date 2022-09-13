@@ -1,31 +1,38 @@
+using Enemies;
+
 namespace Controls;
 
 public class CombatControls
 {
 
     //needs changes like the combat class
-    public int GetPlayerAttack(Player player)
+    public void GetPlayerAttack(IEnemy enemy, Player player)
     {
         switch (Select())
         {
             case CombatCommands.BasicAttack:
-                return player.AttackDamage;
-            default:
-                return player.AttackDamage;
+                enemy.TakeDamage(player.AttackDamage);
+                break;
+            case CombatCommands.BasicSkill:
+                player.PlayerClass.BasicSkill(player, enemy);
+                break;
         }
 
     }
 
     private CombatCommands Select()
     {
-        return CombatCommands.BasicAttack;
+        int choice;
+        string input = Console.ReadLine();
+        Int32.TryParse(input, out choice);
+        return (CombatCommands)choice;
     }
 }
 
 enum CombatCommands
 {
-    BasicAttack,
-    BasicSkill,
-    MediumSkill,
-    UltimateSkill,
+    BasicAttack = 1,
+    BasicSkill = 2,
+    MediumSkill = 3,
+    UltimateSkill = 4,
 }

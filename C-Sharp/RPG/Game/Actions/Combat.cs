@@ -19,7 +19,8 @@ public class Combat
         while (inCombat)
         {
             // This needs changes, the attack is the one that should do this.
-            Enemy.TakeDamage(combatControls.GetPlayerAttack(Player));
+            //Enemy.TakeDamage(combatControls.GetPlayerAttack(Player));
+            combatControls.GetPlayerAttack(Enemy, Player);
             if (Enemy.Health <= 0)
             {
                 Console.WriteLine("The player won!");

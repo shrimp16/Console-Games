@@ -2,7 +2,7 @@ using Enemies;
 
 namespace Classes;
 
-class Mage
+class Mage : IClass
 {
     public void BasicSkill(Player player, IEnemy enemy)
     {
