@@ -29,6 +29,10 @@ public class CombatControls
     private CombatCommands Select()
     {
         int choice;
+        Console.WriteLine("1 - Basic Attack");
+        Console.WriteLine("2 - Fire Ball");
+        Console.WriteLine("3 - Dragon Breath");
+        Console.WriteLine("4 - Lightnening Bolt");
         string input = Console.ReadKey(true).KeyChar.ToString();
         Int32.TryParse(input, out choice);
         return (CombatCommands)choice;
