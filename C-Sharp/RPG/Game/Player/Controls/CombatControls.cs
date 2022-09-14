@@ -29,7 +29,7 @@ public class CombatControls
     private CombatCommands Select()
     {
         int choice;
-        string input = Console.ReadLine();
+        string input = Console.ReadKey(true).KeyChar.ToString();
         Int32.TryParse(input, out choice);
         return (CombatCommands)choice;
     }
