@@ -14,6 +14,10 @@ class SmallHealthPotion : IItems
     {
         player.Health += 50;
     }
+
+    public void GetDescription(){
+        Console.WriteLine("A Small Health Potion that will heal you for 50!");
+    }
 }
 class HealthPotion : IItems
 {
@@ -28,6 +32,10 @@ class HealthPotion : IItems
         player.Health += 250;
     }
 
+    public void GetDescription(){
+        Console.WriteLine("A Health Potion that will heal you for 250!");
+    }
+
 }
 
 class BigHealthPotion : IItems
@@ -40,5 +48,9 @@ class BigHealthPotion : IItems
     public void Use(Player player)
     {
         player.Health += 500;
+    }
+
+    public void GetDescription(){
+        Console.WriteLine("A Big Health Potion that will heal you for 500!");
     }
 }
