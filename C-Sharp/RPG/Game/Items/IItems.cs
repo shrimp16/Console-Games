@@ -1,5 +1,9 @@
+using Enemies;
+
 namespace Items;
 
 public interface IItems {
-    void Use();
+
+    void Use(Player player);
+    void Use(IEnemy enemy);
 }
