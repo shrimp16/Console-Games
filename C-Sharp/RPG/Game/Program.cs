@@ -6,7 +6,7 @@ class Program
     {
         EnemiesFactory factory = new EnemiesFactory();
         IEnemy enemy = factory.GenerateEnemy();
-        Player player = new Player(1000);
+        Player player = new Player();
         Combat combat = new Combat(enemy, player);
         combat.StartCombat();
     }

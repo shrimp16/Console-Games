@@ -10,16 +10,18 @@ public class Player
     public int Mana { get; set; }
     public int AttackDamage { get; set; }
     public int MagicDamage { get; set; }
-    public IItems[]? Inventory { get; set; }
-    public IPets[]? Pets { get; set; }
+    public List<IItems> Inventory { get; set; }
+    public List<IPets> Pets { get; set; }
 
-    public Player(int health)
+    public Player()
     {
-        this.Health = health;
-        AttackDamage = 50;
-        MagicDamage = 100;
+        Health = 1000;
+        Resistance = 0;
         Mana = 500;
-        PlayerClass = new Mage();
+        AttackDamage = 50;
+        MagicDamage = 0;
+        Inventory = new List<IItems>();
+        Pets = new List<IPets>();
     }
 
     public void TakeDamage(int damage)
