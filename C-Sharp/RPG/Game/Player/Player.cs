@@ -12,8 +12,8 @@ public class Player
     public int MaxMana { get; set; }
     public int AttackDamage { get; set; }
     public int MagicDamage { get; set; }
-    public List<IItems> Inventory { get; set; }
-    public List<IPets> Pets { get; set; }
+    public IItems[] Inventory { get; set; }
+    public IPets[] Pets { get; set; }
 
     public Player()
     {
@@ -24,8 +24,8 @@ public class Player
         MaxMana = 500;
         AttackDamage = 50;
         MagicDamage = 0;
-        Inventory = new List<IItems>();
-        Pets = new List<IPets>();
+        Inventory = new IItems[10];
+        Pets = new IPets[5];
     }
 
     public void TakeDamage(int damage)
