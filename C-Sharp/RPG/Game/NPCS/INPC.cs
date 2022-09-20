@@ -1,5 +1,5 @@
 interface INPC
 {
-    void Interact();
+    void Interact(Player player);
 
 }
