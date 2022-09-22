@@ -12,6 +12,7 @@ public class Player
     public int MaxMana { get; set; }
     public int AttackDamage { get; set; }
     public int MagicDamage { get; set; }
+    public int Balance { get; set; }
     public IItems[] Inventory { get; set; }
     public IPets[] Pets { get; set; }
 
@@ -24,6 +25,7 @@ public class Player
         MaxMana = 500;
         AttackDamage = 50;
         MagicDamage = 0;
+        Balance = 0;
         Inventory = new IItems[10];
         Pets = new IPets[5];
     }

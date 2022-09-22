@@ -15,8 +15,8 @@ class Program
         combat.StartCombat();*/
 
         // BUY
-        IShop PotionShop = new PotionShop();
-        player.Inventory = PotionShop.Interact(player.Inventory);
+        INPC PotionShop = new PotionShop();
+        PotionShop.Interact(player);
         foreach (IItems item in player.Inventory)
         {
             if (item != null)

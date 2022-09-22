@@ -2,12 +2,11 @@ using Potions;
 using Items;
 namespace Shops;
 
-public class PotionShop : IShop
+public class PotionShop : INPC
 {
-    public IItems[] Interact(IItems[] inventory)
+    public void Interact(Player player)
     {
         int slot = 0;
-        inventory[slot] = new HealthPotion();
-        return inventory;
+        player.Inventory[slot] = new HealthPotion();
     }
 }
