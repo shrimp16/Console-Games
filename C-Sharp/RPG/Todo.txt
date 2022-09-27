@@ -14,3 +14,7 @@ Needed:
         => Hunt
         => Jobs
     => Dungeons
+
+Other stuff:
+    Create text files with "UI" components
+    Create basic map structure
