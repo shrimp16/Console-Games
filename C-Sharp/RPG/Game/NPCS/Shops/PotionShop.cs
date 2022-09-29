@@ -12,13 +12,26 @@ public class PotionShop : INPC
             new ManaPotion(),
             new BigManaPotion()
         };
+
     public string[] stock_list = new string[]{
-        "Small Health Potion",
-        "Health Potion",
-        "Big Health Potion",
-        "Small Mana Potion",
-        "Mana Potion",
-        "Big Mana Potion"
+        "╔═════════════════════════╗\n" +
+        "║   Small Health Potion   ║\n" +
+        "╚═════════════════════════╝",
+        "╔═════════════════════════╗\n" +
+        "║      Health Potion      ║\n" +
+        "╚═════════════════════════╝",
+        "╔═════════════════════════╗\n" +
+        "║    Big Health Potion    ║\n" +
+        "╚═════════════════════════╝",
+        "╔═════════════════════════╗\n" +
+        "║    Small Mana Potion    ║\n" +
+        "╚═════════════════════════╝",
+        "╔═════════════════════════╗\n" +
+        "║       Mana Potion       ║\n" +
+        "╚═════════════════════════╝",
+        "╔═════════════════════════╗\n" +
+        "║      Big Mana Potion    ║\n" +
+        "╚═════════════════════════╝",
     };
 
     public void Interact(Player player)

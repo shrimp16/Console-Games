@@ -15,7 +15,7 @@ class Menu
         {
             if (i == pointer)
             {
-                Console.ForegroundColor = ConsoleColor.Red;
+                Console.ForegroundColor = ConsoleColor.Blue;
             }
             Console.WriteLine(_content[i]);
             Console.ForegroundColor = ConsoleColor.White;
