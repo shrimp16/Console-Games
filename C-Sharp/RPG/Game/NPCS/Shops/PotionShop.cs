@@ -38,6 +38,7 @@ public class PotionShop : INPC
     {
         Menu menu = new Menu(stock_list);
         menu.Show();
+        menu.GetOption();
         /*for(int i = 0; i < player.Inventory.Length; i++){
             if(player.Inventory[i] == null){
                 player.Inventory[i] = new HealthPotion();

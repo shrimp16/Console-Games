@@ -2,6 +2,7 @@ class Menu
 {
     public string[] _content { get; set; }
     public int pointer { get; set; }
+    public bool selected { get; set; }
     public Menu(string[] content)
     {
         _content = content;
@@ -20,5 +21,13 @@ class Menu
             Console.WriteLine(_content[i]);
             Console.ForegroundColor = ConsoleColor.White;
         }
+    }
+
+    public int GetOption()
+    {
+    }
+
+    public void KeyPress(ConsoleKey key)
+    {
     }
 }
