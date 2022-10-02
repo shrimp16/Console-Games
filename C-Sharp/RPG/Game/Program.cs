@@ -17,9 +17,7 @@ class Program
         // BUY
         INPC PotionShop = new PotionShop();
         PotionShop.Interact(player);
-        PotionShop.Interact(player);
-        PotionShop.Interact(player);
-        PotionShop.Interact(player);
+        Console.Clear();
         foreach (IItems item in player.Inventory)
         {
             if (item != null)

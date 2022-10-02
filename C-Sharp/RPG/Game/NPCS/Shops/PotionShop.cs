@@ -38,12 +38,12 @@ public class PotionShop : INPC
     {
         Menu menu = new Menu(stock_list);
         menu.Show();
-        menu.GetOption();
-        /*for(int i = 0; i < player.Inventory.Length; i++){
+        int opt = menu.GetOption();
+        for(int i = 0; i < player.Inventory.Length; i++){
             if(player.Inventory[i] == null){
-                player.Inventory[i] = new HealthPotion();
+                player.Inventory[i] = stock[opt];
                 return;
             }
-        }*/
+        }
     }
 }
