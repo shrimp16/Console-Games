@@ -9,6 +9,10 @@ class SavageBoar : IEnemy
         Health -= damage;
     }
 
+    public void Reset(){
+        Health = 250;
+    }
+
     public override string ToString()
     {
         return "Savage Boar";

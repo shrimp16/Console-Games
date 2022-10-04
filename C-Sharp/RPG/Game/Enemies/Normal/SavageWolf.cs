@@ -11,6 +11,10 @@ class SavageWolf : IEnemy
         Health -= damage;
     }
 
+    public void Reset(){
+        Health = 100;
+    }
+
     public override string ToString()
     {
         return "Savage Wolf";

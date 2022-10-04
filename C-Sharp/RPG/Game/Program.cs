@@ -15,7 +15,7 @@ class Program
         combat.StartCombat();*/
 
         // BUY
-        INPC PotionShop = new PotionShop();
+        /*INPC PotionShop = new PotionShop();
         PotionShop.Interact(player);
         //Console.Clear();
         foreach (IItems item in player.Inventory)
@@ -24,6 +24,16 @@ class Program
             {
                 item.GetDescription();
             }
-        }
+        }*/
+
+        EnemiesFactory factory = new EnemiesFactory();
+        IEnemy enemy = factory.GenerateEnemy();
+        Console.WriteLine(enemy.ToString() + " : " + enemy.Health);
+        enemy.TakeDamage(10);
+        Console.WriteLine(enemy.ToString() + " : " + enemy.Health);
+        enemy = factory.GenerateEnemy();
+        Console.WriteLine(enemy.ToString() + " : " + enemy.Health);
+        enemy.TakeDamage(10);
+        Console.WriteLine(enemy.ToString() + " : " + enemy.Health);
     }
 }

@@ -6,21 +6,18 @@ class EnemiesFactory
 {
 
     //NEED TO WORK ON THIS PROBABILITIES
+
+    public IEnemy[] enemies = new IEnemy[]{
+        new SavageWolf(),
+        new SavageBoar()
+    };
+
     public IEnemy GenerateEnemy()
     {
 
         int randomNumber = new Random().Next(2);
-
-        switch (randomNumber)
-        {
-            case 0:
-                return new SavageWolf();
-            case 1:
-                return new SavageBoar();
-            default:
-                return new SavageWolf();
-
-        }
+        enemies[randomNumber].Reset();
+        return enemies[randomNumber];
 
     }
 }
