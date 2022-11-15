@@ -5,6 +5,4 @@
 
 <div align="center">
   
-  No games yet :(
-  
 </div>
