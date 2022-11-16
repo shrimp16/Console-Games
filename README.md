@@ -10,4 +10,6 @@
   
   [<img heigth="100" width="100" src="https://seeklogo.com/images/C/c-sharp-c-logo-02F17714BA-seeklogo.com.png">](https://github.com/shrimp16/Console-Games/tree/main/C-Sharp)
   
+  [<img heigth="200" width="200" src="https://www.freepnglogos.com/uploads/javascript-png/javascript-logo-transparent-logo-javascript-images-3.png">](https://github.com/shrimp16/Console-Games/tree/main/JavaScript)
+  
   </div>
